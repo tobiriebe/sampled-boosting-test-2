@@ -405,7 +405,7 @@ addAlgorithm(reg, id = "sampledboosting", fun = sampledboosting.wrapper, overwri
 
 
 # Define problem parameters:
-pars = list(simulations = c(500, 1000), predictors = c(100, 1000))
+pars = list(simulations = c(500), predictors = c(100, 1000))
 mytest.design = makeDesign("mytest", exhaustive = pars)
 
 # Define sampledboosting parameters:
@@ -430,5 +430,5 @@ addExperiments(reg, prob.designs = mytest.design,
 summarizeExperiments(reg)
 
 # Submit the jobs to the batch system
-submitJobs(reg, resources = list(walltime = 60L*60L*168L, memory = 240000L), max.retries = 10L)
+submitJobs(reg, resources = list(walltime = 60L*60L*96L, memory = 240000L), max.retries = 10L)
  
