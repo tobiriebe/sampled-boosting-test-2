@@ -134,7 +134,7 @@ sampledboosting.wrapper <- function(dynamic, sampleRatio ){
     nOuterFolds <- 10 #number of folds
     redSteps <- 100 #number of steps to run for the reduction in voxels
     sampleRatio = sampleRatio #ratio of voxels to REMOVE
-    fixedMstop <- 500
+    fixedMstop <- 250
     fixedNu <- 0.1
     dynamic <- dynamic
     localRun <- TRUE
@@ -413,7 +413,7 @@ addAlgorithm(reg, id = "sampledboosting", fun = sampledboosting.wrapper, overwri
 
 
 # Define problem parameters:
-pars = list(simulations = 500, predictors = 900)
+pars = list(simulations = 350, predictors = 900)
 mytest2D.design = makeDesign("mytest2D", exhaustive = pars)
 
 # Define sampledboosting parameters:
@@ -438,5 +438,5 @@ addExperiments(reg, prob.designs = mytest2D.design,
 summarizeExperiments(reg)
 
 # Submit the jobs to the batch system
-submitJobs(reg, resources = list(walltime = 60L*60L*4L, memory = 2200L), max.retries = 10L)
+submitJobs(reg, resources = list(walltime = 60L*60L*4L, memory = 150000L), max.retries = 10L)
 
